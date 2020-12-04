@@ -9,10 +9,6 @@ if path.exists('config_file.txt'):
     if inp == 'N':
         sys.exit(0)
 
-print(
-    "NOTE : Make sure you use a temporary bot account with this script, and not your original account. The temporary account will retrieve the followers of your original account"
-)
-
 insta_username = input("Enter username of your bot account : ")
 insta_password = getpass.getpass()
 
