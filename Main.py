@@ -14,8 +14,10 @@ insta_username = ''
 insta_password = ''
 username = ''
 discord_webhook_url = ''
+ufforuf = ''
+fof = ''
 
-SLEEP_MINS = 20
+SLEEP_MINS = 30
 
 
 def listToString(s):
@@ -75,7 +77,7 @@ def start():
                 follow_count = len(followers)
                 unfollow_count = len(unfollowers)
 
-                discord_webhook.send_msg(insta_username,insta_password,username,follower_change,followers,unfollowers,follow_count,unfollow_count,curr_time,discord_webhook_url)
+                discord_webhook.send_msg(insta_username,insta_password,username,follower_change,followers,unfollowers,follow_count,unfollow_count,curr_time,discord_webhook_url,ufforuf,fof)
 
                 f = open("Follower_List.txt","w")
                 f.write(str(current_followers))
@@ -101,6 +103,8 @@ if __name__ == '__main__':
     insta_username = config['insta_username']
     insta_password = config['insta_password']
     username = config['username']
+    ufforuf = config['ufforuf']
+    fof = config['fof']
     discord_webhook_url = config['discord_webhook_url']
 
     intro()

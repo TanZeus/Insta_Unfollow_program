@@ -14,10 +14,9 @@ def DisIntro(webhook_url):
     webhook.set_footer(text='--ScarLet42')
 
 def send_msg(insta_username, insta_password, username, follower_change, followers, unfollowers,
-             followers_count, unfollowers_count, time, webhook_url):
+             followers_count, unfollowers_count, time, webhook_url, uforuf, fof):
 
     WEBHOOK_URL = webhook_url
-    bot = MyIGBot(insta_username, insta_password)
 
     if followers == [] and unfollowers == []:
         print("No change in followers, so not sending message to discord")
@@ -61,20 +60,29 @@ def send_msg(insta_username, insta_password, username, follower_change, follower
                           value=followers)
 
 
-    for x in unfollowers:
-        break
+    if (unfollowers != 'None' and uforuf == 'y'):
 
-    if unfollowers != 'None':
+        bot = MyIGBot(insta_username, insta_password)
+        for x in unfollowers:
+            response = bot.unfollow(x)
+            if (response == 200):
+                print(x, "Unfollowed You On -", username)
+                webhook.add_field(name='Unfollowed %s' %(x))
+                print("Unfollowed", x)
+            else:
+                print(x, "Unfollowed You On -", username)
+                print ("Wasn't following ", x)
 
-        webhook.add_field(name='Unfollowed ', value= x)
-        print(ghj, "Unfollowed You On -", username)
-        response = bot.unfollow(x)
-        if (response == 200):
-            print("Unfollowed", x)
-        else:
-            print ("Wasn't following ", x)
+    if (followers != 'None' and fof == 'y'):
+        bot = MyIGBot(insta_username, insta_password)
+        for y in followers:
+            response = bot.follow(y)
+            if (response == 200):
+                print("Followed back ", y)
+                webhook.add_field(name='Followed Back %s' %(y))
+            else:
+                print("Already Following %s or some other error occured..." %(y))
 
     webhook.send()
-
 
     print("Sent message to discord")
