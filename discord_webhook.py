@@ -33,7 +33,7 @@ def send_msg(insta_username, insta_password, username, follower_change, follower
     webhook.set_content(title='Report for %s' % (time),
                         description="Here's your report with :heart:")
 
-    # Attaches a footer
+    # Attaches a footer-
     webhook.set_footer(text='-- ScarLet42')
 
     # Appends a field
