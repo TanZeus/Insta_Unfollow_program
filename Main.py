@@ -17,7 +17,7 @@ discord_webhook_url = ''
 ufforuf = ''
 fof = ''
 
-SLEEP_MINS = 30
+SLEEP_MINS = 40
 
 
 def listToString(s):
