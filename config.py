@@ -19,7 +19,7 @@ else:
     username = input("Enter username of your original account (whose followers you want to monitor) : ")
 
 ufforuf = input("Do you want to turn on UNFOLLOW_FOR_UNFOLLOW ?(y/n)")
-fof = input("Do you want to turn on FOLLOW_FOR_FOLLOW ?(y/n)")
+fof = input("Do you want to turn on FOLLOW_FOR_FOLLOW?(y/n)")
 
 discord_webhook_url = input("Enter your discord webhook URL : ")
 
